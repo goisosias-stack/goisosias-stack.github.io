@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QV4KNM1LTX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QV4KNM1LTX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Osias Alves · Psicanalista</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080808;
+  --dark:#111111;
+  --card:#181818;
+  --border:#2a2a2a;
+  --gold:#c9a84c;
+  --gold-light:#e8c97a;
+  --white:#f5f5f5;
+  --muted:#888888;
+  --cream:#f0ede8;
+  --text:#1a1a1a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:28px 60px;transition:all .4s;
+}
+nav.scrolled{
+  background:rgba(8,8,8,.95);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:18px 60px;
+}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:18px;color:var(--white);letter-spacing:.5px}
+.nav-logo span{color:var(--gold);font-style:italic}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:rgba(255,255,255,.65);font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{color:var(--gold);border:1px solid var(--gold);padding:9px 22px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all .25s}
+.nav-cta:hover{background:var(--gold);color:var(--black)}
+@media(max-width:768px){nav{padding:20px 24px} nav.scrolled{padding:14px 24px} .nav-links{display:none}}
+
+/* ══ HERO — layout exato da imagem ══ */
+.hero{
+  min-height:100vh;
+  background:var(--black);
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+}
+.hero-noise{
+  position:absolute;inset:0;pointer-events:none;
+}
+.hero-inner{
+  max-width:1280px;width:100%;margin:0 auto;
+  padding:120px 60px 80px;
+  display:grid;
+  grid-template-columns:1fr 400px;
+  gap:60px;align-items:center;
+  position:relative;z-index:1;
+}
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:48px;padding:100px 24px 60px}
+  .hero-card{max-width:420px}
+  .hero-btns{flex-wrap:wrap}
+}
+
+/* eyebrow */
+.hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--gold)}
+.hero-eyebrow span{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:500}
+
+/* título enorme */
+.hero h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(52px,7vw,96px);
+  line-height:1.05;
+  color:var(--white);
+  font-weight:400;
+  margin-bottom:24px;
+}
+.hero h1 em{color:var(--gold);font-style:italic}
+
+/* descrição */
+.hero-desc{
+  font-size:16px;line-height:1.8;
+  color:var(--muted);
+  max-width:500px;
+  margin-bottom:36px;font-weight:300;
+}
+
+/* botões lado a lado */
+.hero-btns{display:flex;gap:14px}
+.btn-hero-gold{
+  background:var(--gold);color:var(--black);
+  padding:15px 28px;font-size:12px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  text-decoration:none;transition:all .25s;
+}
+.btn-hero-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-hero-ghost{
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--muted);
+  padding:15px 28px;font-size:12px;font-weight:500;
+  letter-spacing:1.5px;text-transform:uppercase;
+  text-decoration:none;transition:all .25s;
+}
+.btn-hero-ghost:hover{border-color:var(--white);color:var(--white)}
+
+/* card lateral */
+.hero-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:36px 32px;
+}
+.hero-card-label{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);font-weight:600;margin-bottom:20px;
+}
+.hero-stat{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.hero-stat-num{font-family:'DM Serif Display',serif;font-size:56px;color:var(--white);line-height:1}
+.hero-stat-sub{font-size:13px;color:var(--muted);font-weight:300}
+.hero-sep{height:1px;background:var(--border);margin:20px 0}
+.hero-modes{display:flex;flex-direction:column;gap:12px}
+.hero-mode{
+  display:flex;align-items:center;gap:10px;
+  font-size:14px;color:var(--muted);font-weight:300;
+}
+.hero-mode::before{content:'•';color:var(--gold);font-size:18px;line-height:1}
+
+/* ══ SEÇÕES ══ */
+.wrap{max-width:1200px;margin:0 auto;padding:0 60px}
+@media(max-width:768px){.wrap{padding:0 24px}}
+
+.tag{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px}
+.tag::before{content:'';width:28px;height:1px;background:var(--gold)}
+
+.h2{font-family:'DM Serif Display',serif;font-size:clamp(32px,4vw,54px);line-height:1.05;font-weight:400;letter-spacing:-.5px}
+.h2 em{color:var(--gold);font-style:italic}
+.h2-light{color:var(--text)}
+.h2-light em{color:#8a6a1a}
+.h2-white{color:var(--white)}
+
+/* botões reutilizáveis */
+.btn-gold{background:var(--gold);color:var(--black);padding:15px 32px;font-size:13px;font-weight:600;letter-spacing:.5px;text-decoration:none;transition:all .25s;display:inline-block}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+
+/* SOBRE */
+#sobre{padding:140px 0;background:var(--cream)}
+.sobre-grid{display:grid;grid-template-columns:400px 1fr;gap:100px;align-items:start}
+@media(max-width:900px){.sobre-grid{grid-template-columns:1fr;gap:48px}}
+.sobre-img{aspect-ratio:3/4;background:linear-gradient(145deg,var(--dark) 0%,#1a1a1a 100%);position:relative;overflow:hidden}
+.sobre-img::after{content:'OA';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:100px;color:rgba(255,255,255,.04);letter-spacing:10px}
+.sobre-img-tag{position:absolute;bottom:0;left:0;right:0;background:var(--gold);padding:20px 24px}
+.sobre-img-name{font-family:'DM Serif Display',serif;font-size:24px;color:var(--black);line-height:1}
+.sobre-img-role{font-size:11px;color:rgba(0,0,0,.5);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+.sobre-body{padding-top:12px}
+.sobre-text{font-size:16px;line-height:1.9;color:#555;margin:20px 0 36px;font-weight:300}
+.sobre-text strong{color:var(--text);font-weight:500}
+.creds{display:flex;flex-direction:column}
+.cred{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.08)}
+.cred:last-child{border:none}
+.cred-icon{width:36px;height:36px;background:var(--black);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:13px}
+.cred-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px}
+.cred-sub{font-size:13px;color:#888;font-weight:300}
+
+/* SERVIÇOS */
+#servicos{padding:140px 0;background:var(--black)}
+.servicos-top{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:64px}
+@media(max-width:768px){.servicos-top{grid-template-columns:1fr;gap:20px}}
+.servicos-intro{font-size:15px;line-height:1.8;color:var(--muted);font-weight:300}
+.servicos-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border)}
+@media(max-width:768px){.servicos-grid{grid-template-columns:1fr}}
+.servico{padding:48px 36px;border-right:1px solid var(--border);transition:background .3s}
+.servico:last-child{border-right:none}
+.servico:hover{background:var(--card)}
+@media(max-width:768px){.servico{border-right:none;border-bottom:1px solid var(--border)}}
+.servico-n{font-family:'DM Serif Display',serif;font-size:52px;color:var(--border);line-height:1;margin-bottom:24px}
+.servico-title{font-family:'DM Serif Display',serif;font-size:22px;color:var(--white);margin-bottom:14px;font-weight:400}
+.servico-desc{font-size:14px;line-height:1.8;color:var(--muted);font-weight:300;margin-bottom:24px}
+.servico-pill{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:500;display:flex;align-items:center;gap:8px}
+.servico-pill::before{content:'';width:20px;height:1px;background:var(--gold)}
+
+/* AREAS */
+#areas{padding:140px 0;background:var(--cream)}
+.areas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(0,0,0,.1);margin-top:52px}
+@media(max-width:768px){.areas-grid{grid-template-columns:1fr}}
+.area{background:var(--cream);padding:52px 44px;transition:background .3s}
+.area:hover{background:#e8e4dd}
+.area-n{font-family:'DM Serif Display',serif;font-size:60px;color:rgba(0,0,0,.06);line-height:1;margin-bottom:20px}
+.area-title{font-family:'DM Serif Display',serif;font-size:24px;color:var(--text);margin-bottom:14px;font-weight:400}
+.area-title em{color:#8a6a1a;font-style:italic}
+.area-desc{font-size:14px;color:#666;line-height:1.8;font-weight:300}
+.areas-cta{text-align:center;margin-top:56px}
+
+/* ABORDAGEM */
+#abordagem{padding:140px 0;background:var(--dark)}
+.abordagem-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;margin-top:60px}
+@media(max-width:768px){.abordagem-grid{grid-template-columns:1fr;gap:48px}}
+.abordagem-text{font-size:16px;line-height:1.9;color:var(--muted);font-weight:300}
+.abordagem-text p{margin-bottom:20px}
+.abordagem-text strong{color:var(--white);font-weight:500}
+.pilares{display:flex;flex-direction:column}
+.pilar{padding:28px 0;border-bottom:1px solid var(--border);display:flex;gap:20px}
+.pilar:first-child{padding-top:0}
+.pilar:last-child{border:none}
+.pilar-l{font-family:'DM Serif Display',serif;font-size:44px;color:var(--gold);opacity:.25;line-height:1;flex-shrink:0;width:44px;font-style:italic}
+.pilar-title{font-size:15px;font-weight:600;color:var(--white);margin-bottom:6px}
+.pilar-desc{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300}
+
+/* BLOG */
+#blog{padding:140px 0;background:var(--black)}
+.blog-header{margin-bottom:52px}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+@media(max-width:768px){.blog-grid{grid-template-columns:1fr}}
+.blog-card{background:var(--black);padding:40px 36px;transition:background .3s;cursor:pointer}
+.blog-card:hover{background:var(--card)}
+.blog-cat{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px}
+.blog-title{font-family:'DM Serif Display',serif;font-size:21px;color:var(--white);line-height:1.25;margin-bottom:16px;font-weight:400}
+.blog-excerpt{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:28px}
+.blog-meta{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--border);padding-top:20px;border-top:1px solid var(--border)}
+.blog-read{color:var(--gold);font-weight:500;text-decoration:none;font-size:12px;display:flex;align-items:center;gap:6px;transition:gap .2s}
+.blog-card:hover .blog-read{gap:10px}
+
+/* CONTATO */
+#contato{padding:140px 0;background:var(--dark)}
+.contato-inner{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start}
+@media(max-width:768px){.contato-inner{grid-template-columns:1fr;gap:48px}}
+.contato-desc{font-size:16px;line-height:1.8;color:var(--muted);margin:18px 0 40px;font-weight:300}
+.infos{display:flex;flex-direction:column;gap:20px}
+.info{display:flex;gap:16px;align-items:flex-start}
+.info-icon{width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0}
+.info-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:4px}
+.info-val{font-size:15px;color:rgba(255,255,255,.6);font-weight:300}
+.form{display:flex;flex-direction:column;gap:14px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:500}
+.fi,.ft{background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--white);padding:12px 0;font-family:'Outfit',sans-serif;font-size:15px;font-weight:300;outline:none;transition:border-color .2s;width:100%}
+.fi:focus,.ft:focus{border-color:var(--gold)}
+.fi::placeholder,.ft::placeholder{color:var(--border)}
+.ft{height:100px;resize:none;padding-top:12px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:500px){.fr{grid-template-columns:1fr}}
+.fs{background:var(--gold);color:var(--black);border:none;padding:16px 36px;margin-top:8px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.5px;transition:all .25s;align-self:flex-start}
+.fs:hover{background:var(--gold-light);transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:#050505;padding:32px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid var(--border)}
+@media(max-width:768px){footer{padding:28px 24px;flex-direction:column;text-align:center}}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:16px;color:rgba(255,255,255,.2)}
+.footer-logo span{color:var(--gold);font-style:italic}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.12);font-weight:300}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:12px;color:rgba(255,255,255,.15);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.4)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}
+.reveal.d2{transition-delay:.2s}
+.reveal.d3{transition-delay:.3s}
+.reveal.d4{transition-delay:.4s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">Osias <span>Alves</span></div>
+  <div class="nav-links">
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#areas">Áreas de Atuação</a>
+    <a href="#dependencia-emocional">Dep. Emocional</a>
+    <a href="#abordagem">Abordagem</a>
+    <a href="#blog">Blog</a>
+    <a href="#contato" class="nav-cta">Agendar Consulta</a>
+  </div>
+</nav>
+
+<!-- HERO — layout exato da imagem -->
+<section class="hero" id="home">
+  <div class="hero-noise"></div>
+  <div class="hero-inner">
+    <!-- ESQUERDA -->
+    <div>
+      <div class="hero-eyebrow"><span>Psicanalista · CRP</span></div>
+      <h1>A escuta que <em>transforma</em> o que você carrega</h1>
+      <p class="hero-desc">Um espaço seguro para compreender seus conflitos, padrões e desejos — e encontrar um caminho mais autêntico de viver.</p>
+      <div class="hero-btns">
+        <a href="#contato" class="btn-hero-gold">Agendar Consulta</a>
+        <a href="#sobre" class="btn-hero-ghost">Conhecer o Trabalho</a>
+      </div>
+    </div>
+    <!-- DIREITA — card -->
+    <div class="hero-card">
+      <div class="hero-card-label">Modalidades de atendimento</div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2</div>
+        <div class="hero-stat-sub">formatos disponíveis</div>
+      </div>
+      <div class="hero-sep"></div>
+      <div class="hero-modes">
+        <div class="hero-mode">Atendimento Presencial</div>
+        <div class="hero-mode">Atendimento Online</div>
+        <div class="hero-mode">Sessões individuais</div>
+        <div class="hero-mode">Agenda flexível</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="wrap">
+    <div class="sobre-grid">
+      <div class="reveal">
+        <div class="sobre-img">
+          <div class="sobre-img-tag">
+            <div class="sobre-img-name">Osias Alves</div>
+            <div class="sobre-img-role">Psicanalista</div>
+          </div>
+        </div>
+      </div>
+      <div class="sobre-body">
+        <div class="tag reveal"><span>Sobre</span></div>
+        <h2 class="h2 h2-light reveal">Uma prática fundada na <em>escuta genuína</em></h2>
+        <p class="sobre-text reveal">Sou psicanalista com formação sólida na teoria e clínica psicanalítica. Meu trabalho é oferecer um espaço de <strong>escuta qualificada</strong>, onde cada pessoa possa falar livremente e compreender melhor o que a move — conscientemente ou não.<br><br>Acredito que a psicanálise não trata sintomas isolados: ela acolhe o sujeito em sua singularidade, respeitando seu tempo e sua história.</p>
+        <div class="creds reveal">
+          <div class="cred"><div class="cred-icon">✦</div><div><div class="cred-title">Formação em Psicanálise</div><div class="cred-sub">Teoria e clínica psicanalítica</div></div></div>
+          <div class="cred"><div class="cred-icon">✦</div><div><div class="cred-title">Atendimento Presencial e Online</div><div class="cred-sub">Flexibilidade para sua rotina</div></div></div>
+          <div class="cred"><div class="cred-icon">✦</div><div><div class="cred-title">Sigilo e Ética Profissional</div><div class="cred-sub">Compromisso com o bem-estar do paciente</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="wrap">
+    <div class="servicos-top">
+      <div>
+        <div class="tag reveal"><span>Serviços</span></div>
+        <h2 class="h2 h2-white reveal">O que ofereço</h2>
+      </div>
+      <p class="servicos-intro reveal">Cada atendimento é singular — adaptado ao momento e à necessidade de quem busca a análise.</p>
+    </div>
+    <div class="servicos-grid">
+      <div class="servico reveal"><div class="servico-n">01</div><div class="servico-title">Análise Individual</div><div class="servico-desc">Processo analítico aprofundado, com sessões regulares voltadas ao autoconhecimento, superação de padrões e elaboração de conflitos internos.</div><div class="servico-pill">Presencial · Online</div></div>
+      <div class="servico reveal d1"><div class="servico-n">02</div><div class="servico-title">Consultas Avaliativas</div><div class="servico-desc">Sessões iniciais para compreender sua demanda, esclarecer dúvidas sobre o processo analítico e definir juntos o melhor caminho para você.</div><div class="servico-pill">Presencial · Online</div></div>
+      <div class="servico reveal d2"><div class="servico-n">03</div><div class="servico-title">Orientação Parental</div><div class="servico-desc">Suporte a pais e cuidadores que desejam compreender melhor o universo emocional dos filhos e fortalecer os vínculos familiares.</div><div class="servico-pill">Presencial · Online</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS DE ATUAÇÃO -->
+<section id="areas">
+  <div class="wrap">
+    <div class="tag reveal"><span>Áreas de Atuação</span></div>
+    <h2 class="h2 h2-light reveal">Como posso <em>te ajudar</em></h2>
+    <p class="reveal" style="font-size:15px;color:#777;font-weight:300;line-height:1.8;max-width:480px;margin-top:14px">A psicanálise acolhe diferentes formas de sofrimento. Abaixo, algumas das principais áreas em que atuo.</p>
+    <div class="areas-grid">
+      <div class="area reveal"><div class="area-n">01</div><div class="area-title">Transtornos de <em>Ansiedade</em></div><div class="area-desc">Ansiedade generalizada, síndrome do pânico, fobias e estados de angústia que impactam a vida cotidiana. A psicanálise busca compreender o que está por trás dos sintomas, não apenas aliviá-los.</div></div>
+      <div class="area reveal d1"><div class="area-n">02</div><div class="area-title">Compulsão — <em>Álcool e Drogas</em></div><div class="area-desc">O uso compulsivo de substâncias muitas vezes encobre um sofrimento psíquico mais profundo. O trabalho analítico oferece um espaço para compreender o que está sendo buscado nessa repetição.</div></div>
+      <div class="area reveal d2"><div class="area-n">03</div><div class="area-title"><em>Relacionamentos</em></div><div class="area-desc">Dificuldades afetivas, padrões repetitivos, conflitos conjugais e familiares. A psicanálise ajuda a compreender o que orienta nossas escolhas e vínculos — conscientes ou não.</div></div>
+      <div class="area reveal d3"><div class="area-n">04</div><div class="area-title">Transtornos do <em>Humor</em></div><div class="area-desc">Depressão, tristeza persistente, oscilações de humor e sensação de vazio. A escuta analítica oferece um caminho para elaborar essas experiências e encontrar novos sentidos.</div></div>
+    </div>
+    <div class="areas-cta reveal"><a href="#contato" class="btn-gold">Agendar uma Consulta</a></div>
+  </div>
+</section>
+
+<!-- ABORDAGEM -->
+<section id="abordagem">
+  <div class="wrap">
+    <div class="tag reveal"><span>Abordagem</span></div>
+    <h2 class="h2 h2-white reveal">Como <em>trabalho</em></h2>
+    <div class="abordagem-grid">
+      <div class="abordagem-text reveal">
+        <p>A psicanálise parte da premissa de que <strong>muito do que nos move está fora do nosso campo consciente</strong>. Sintomas, repetições, dificuldades nos relacionamentos — tudo isso fala de algo que pede elaboração.</p>
+        <p>No processo analítico, a fala é o instrumento principal. Não há respostas prontas nem julgamentos. O que existe é um espaço de <strong>escuta ativa e rigorosa</strong>, onde o sujeito pode se surpreender com o que descobre sobre si mesmo.</p>
+        <p>Meu trabalho é orientado pela ética do bem-dizer: respeitar a singularidade de cada um e acompanhar seu processo no tempo que lhe é próprio.</p>
+      </div>
+      <div class="pilares reveal d1">
+        <div class="pilar"><div class="pilar-l">E</div><div><div class="pilar-title">Escuta sem julgamento</div><div class="pilar-desc">Um espaço onde você pode falar com liberdade, sem medo de ser avaliado ou rotulado.</div></div></div>
+        <div class="pilar"><div class="pilar-l">S</div><div><div class="pilar-title">Singularidade de cada caso</div><div class="pilar-desc">Não existe protocolo. Cada análise respeita o ritmo, a história e o desejo de quem fala.</div></div></div>
+        <div class="pilar"><div class="pilar-l">C</div><div><div class="pilar-title">Compromisso com o processo</div><div class="pilar-desc">A transformação acontece ao longo do tempo, com constância e confiança no trabalho analítico.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPENDÊNCIA EMOCIONAL -->
+<section id="dependencia-emocional" style="padding:140px 0;background:var(--black);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;">
+      <div>
+        <div class="tag reveal"><span>Especialidade</span></div>
+        <h2 class="h2 h2-white reveal">Dependência <em>Emocional</em></h2>
+        <p style="font-size:16px;line-height:1.9;color:var(--muted);font-weight:300;margin:28px 0 20px;" class="reveal">Você sente que precisa do outro para se sentir inteiro? Que o medo de perder alguém te paralisa — mesmo quando o relacionamento te faz mal?</p>
+        <p style="font-size:16px;line-height:1.9;color:var(--muted);font-weight:300;margin-bottom:36px;" class="reveal">A dependência emocional não é fraqueza. É um padrão aprendido — com origem na sua história — que pode ser <strong style="color:var(--white);font-weight:500;">compreendido e transformado</strong> através da psicanálise.</p>
+        <a href="https://osias-psicanalista.netlify.app" target="_blank" class="btn-gold reveal">Saiba mais e agende uma conversa</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:2px;background:var(--border);" class="reveal">
+        <div style="background:var(--card);padding:36px 32px;border-bottom:1px solid var(--border);">
+          <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px;">Sinais comuns</div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;"><span style="color:var(--gold);font-size:18px;line-height:1;flex-shrink:0;">—</span>Medo intenso de abandono ou rejeição</div>
+            <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;"><span style="color:var(--gold);font-size:18px;line-height:1;flex-shrink:0;">—</span>Dificuldade de colocar limites nos relacionamentos</div>
+            <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;"><span style="color:var(--gold);font-size:18px;line-height:1;flex-shrink:0;">—</span>Ciúme excessivo e necessidade constante de aprovação</div>
+            <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;"><span style="color:var(--gold);font-size:18px;line-height:1;flex-shrink:0;">—</span>Repetição de padrões em relacionamentos diferentes</div>
+            <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;"><span style="color:var(--gold);font-size:18px;line-height:1;flex-shrink:0;">—</span>Sensação de perda de identidade dentro do relacionamento</div>
+          </div>
+        </div>
+        <div style="background:var(--card);padding:36px 32px;">
+          <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px;">O que a psicanálise oferece</div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;"><span style="color:var(--gold);font-size:18px;line-height:1;flex-shrink:0;">✓</span>Compreender a origem dos seus padrões afetivos</div>
+            <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;"><span style="color:var(--gold);font-size:18px;line-height:1;flex-shrink:0;">✓</span>Desenvolver autonomia emocional e autoestima</div>
+            <div style="display:flex;gap:14px;align-items:flex-start;font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;"><span style="color:var(--gold);font-size:18px;line-height:1;flex-shrink:0;">✓</span>Construir relações mais livres e saudáveis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="wrap">
+    <div class="blog-header">
+      <div class="tag reveal"><span>Blog</span></div>
+      <h2 class="h2 h2-white reveal">Reflexões sobre <em>psicanálise e vida</em></h2>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal" onclick="openModal(0)"><div class="blog-cat">Psicanálise</div><div class="blog-title">O que é a escuta analítica e por que ela é diferente?</div><div class="blog-excerpt">Em um mundo onde todos falam ao mesmo tempo, ser verdadeiramente escutado tornou-se uma experiência rara. Na psicanálise, escutar vai muito além de ouvir palavras.</div><div class="blog-meta"><span>5 min de leitura</span><a href="#" class="blog-read" onclick="event.preventDefault();openModal(0)">Ler artigo →</a></div></div>
+      <div class="blog-card reveal d1" onclick="openModal(1)"><div class="blog-cat">Autoconhecimento</div><div class="blog-title">Por que repetimos os mesmos padrões nos relacionamentos?</div><div class="blog-excerpt">Mesmo quando sofremos, podemos voltar aos mesmos tipos de relação. A psicanálise oferece respostas profundas para essa questão.</div><div class="blog-meta"><span>7 min de leitura</span><a href="#" class="blog-read" onclick="event.preventDefault();openModal(1)">Ler artigo →</a></div></div>
+      <div class="blog-card reveal d2" onclick="openModal(2)"><div class="blog-cat">Clínica</div><div class="blog-title">Ansiedade: o que ela tenta nos dizer?</div><div class="blog-excerpt">A ansiedade costuma ser vista como uma inimiga. Mas para a psicanálise, ela pode ser compreendida como uma mensagem do psiquismo.</div><div class="blog-meta"><span>6 min de leitura</span><a href="#" class="blog-read" onclick="event.preventDefault();openModal(2)">Ler artigo →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="wrap">
+    <div class="contato-inner">
+      <div>
+        <div class="tag reveal"><span>Contato</span></div>
+        <h2 class="h2 h2-white reveal">Dê o <em>primeiro passo</em></h2>
+        <p class="contato-desc reveal">Entre em contato para agendar uma consulta ou tirar dúvidas. O atendimento é presencial ou online — você escolhe.</p>
+        <div class="infos reveal">
+          <div class="info"><div class="info-icon">✉</div><div><div class="info-label">E-mail</div><div class="info-val">goisosias@gmail.com</div></div></div>
+          <div class="info"><div class="info-icon">☎</div><div><div class="info-label">WhatsApp</div><div class="info-val">(11) 96073-4017</div></div></div>
+          <div class="info"><div class="info-icon">◎</div><div><div class="info-label">Modalidades</div><div class="info-val">Presencial e Online</div></div></div>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <form class="form" onsubmit="return false">
+          <div class="fr">
+            <div class="fg"><label class="fl">Nome</label><input type="text" class="fi" placeholder="Seu nome"></div>
+            <div class="fg"><label class="fl">Telefone</label><input type="tel" class="fi" placeholder="(XX) XXXXX-XXXX"></div>
+          </div>
+          <div class="fg"><label class="fl">E-mail</label><input type="email" class="fi" placeholder="seu@email.com"></div>
+          <div class="fg"><label class="fl">Mensagem</label><textarea class="ft" placeholder="Como posso te ajudar?"></textarea></div>
+          <button type="submit" class="fs">Enviar Mensagem</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Osias <span>Alves</span> · Psicanalista</div>
+  <div class="footer-copy">© 2025 · Todos os direitos reservados</div>
+  <div class="footer-links">
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#contato">Contato</a>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div id="modal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.95);overflow-y:auto;padding:60px 20px">
+  <div style="max-width:680px;margin:0 auto;background:#111;border:1px solid #222;padding:60px;position:relative">
+    <button onclick="closeModal()" style="position:absolute;top:20px;right:20px;background:none;border:1px solid #333;width:36px;height:36px;font-size:14px;cursor:pointer;color:#666;display:flex;align-items:center;justify-content:center">✕</button>
+    <div id="modal-cat" style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#c9a84c;font-weight:600;margin-bottom:16px"></div>
+    <h2 id="modal-title" style="font-family:'DM Serif Display',serif;font-size:clamp(22px,4vw,36px);color:#f5f5f5;line-height:1.15;margin-bottom:36px;font-weight:400"></h2>
+    <div id="modal-body" style="font-size:16px;line-height:1.9;color:#888;font-weight:300"></div>
+    <div style="margin-top:48px;padding-top:28px;border-top:1px solid #222">
+      <a href="#contato" onclick="closeModal()" class="btn-gold" style="display:inline-block">Agendar Consulta</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const artigos=[
+  {cat:'Psicanálise',title:'O que é a escuta analítica e por que ela é diferente?',body:`<p>Em um mundo onde todos falam ao mesmo tempo, ser verdadeiramente escutado tornou-se uma experiência rara. Muitas pessoas chegam ao consultório acreditando que precisam apenas "desabafar", mas encontram algo diferente: uma escuta que não julga, não aconselha imediatamente e não tenta encaixar suas dores em respostas prontas. Essa é a escuta analítica.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">O que significa escuta analítica?</h3><p>A escuta analítica é o modo como o psicanalista acolhe e interpreta a fala do analisando. O analista escuta para compreender os sentidos inconscientes que atravessam a fala — não apenas o conteúdo objetivo da história, mas a maneira como ela é contada.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">Uma escuta sem julgamentos</h3><p>Uma das características mais importantes da escuta analítica é a suspensão do julgamento moral. O analista não está ali para dizer o que é certo ou errado. Esse espaço permite que o sujeito fale de pensamentos, desejos, medos e conflitos que nunca conseguiu expressar em outros lugares.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">Conclusão</h3><p>Em tempos de respostas rápidas e relações superficiais, talvez uma das experiências mais transformadoras seja justamente esta: encontrar alguém disposto a escutar de verdade.</p>`},
+  {cat:'Autoconhecimento',title:'Por que repetimos os mesmos padrões nos relacionamentos?',body:`<p><em>"Eu sempre acabo me envolvendo com pessoas emocionalmente indisponíveis." "Todo relacionamento meu termina da mesma forma."</em></p><p>Essas frases revelam algo importante: muitas vezes, repetimos padrões afetivos sem perceber.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">A repetição nem sempre é consciente</h3><p>Na psicanálise, isso acontece porque muitos dos nossos vínculos afetivos são influenciados por conteúdos inconscientes — histórias, emoções e marcas construídas desde a infância.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">O familiar pode parecer seguro</h3><p>O familiar tende a parecer mais seguro do que o desconhecido. Uma pessoa que cresceu convivendo com abandono emocional pode sentir uma atração inconsciente por relações distantes — não porque deseje sofrer, mas porque aquele vínculo já faz parte da sua experiência afetiva.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">Conclusão</h3><p>Talvez o primeiro passo para transformar um padrão seja parar de perguntar "por que isso sempre acontece comigo?" e começar a perguntar "o que essa repetição revela sobre minha história?"</p>`},
+  {cat:'Clínica',title:'Ansiedade: o que ela tenta nos dizer?',body:`<p>A ansiedade costuma ser vista como uma inimiga. Mas para a psicanálise, ela não é apenas um sintoma a ser eliminado — pode ser compreendida como uma mensagem do psiquismo.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">A ansiedade como sinal</h3><p>Na psicanálise, a ansiedade é entendida como um sinal de conflito interno. Ela surge quando algo no sujeito produz angústia, insegurança ou ameaça emocional — mesmo que isso não esteja totalmente consciente.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">O corpo fala quando a mente não consegue</h3><p>Quando emoções são reprimidas ou não encontram espaço de expressão, elas podem aparecer através de sintomas físicos. A ansiedade frequentemente é uma forma de o corpo comunicar algo que não conseguiu ser simbolizado em palavras.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">Conclusão</h3><p>Talvez a pergunta mais importante não seja apenas "como faço para parar de sentir ansiedade?", mas também: "O que minha ansiedade está tentando me mostrar?"</p>`}
+];
+function openModal(i){const a=artigos[i];document.getElementById('modal-cat').textContent=a.cat;document.getElementById('modal-title').textContent=a.title;document.getElementById('modal-body').innerHTML=a.body;document.getElementById('modal').style.display='block';document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('modal').style.display='none';document.body.style.overflow='';}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+<!-- Botão WhatsApp Flutuante -->
+<a href="https://wa.me/5511960734017?text=Olá%20Osias!%20Vim%20pelo%20anúncio%20e%20quero%20agendar%20uma%20sessão."
+   target="_blank"
+   title="Fale comigo no WhatsApp"
+   style="
+     position:fixed;
+     bottom:28px;
+     right:28px;
+     z-index:9999;
+     background-color:#25D366;
+     border-radius:50%;
+     width:62px;
+     height:62px;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+     box-shadow:0 4px 16px rgba(0,0,0,0.35);
+     text-decoration:none;
+     transition:transform .2s, box-shadow .2s;
+   "
+   onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 20px rgba(0,0,0,0.45)'"
+   onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.35)'"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
+    <path fill="#fff" d="M24 4C12.95 4 4 12.95 4 24c0 3.6.96 7.06 2.73 10.05L4 44l10.2-2.68A19.93 19.93 0 0 0 24 44c11.05 0 20-8.95 20-20S35.05 4 24 4zm0 36c-3.3 0-6.45-.88-9.2-2.54l-.66-.39-6.05 1.59 1.61-5.9-.43-.68A15.93 15.93 0 0 1 8 24c0-8.82 7.18-16 16-16s16 7.18 16 16-7.18 16-16 16zm8.77-11.87c-.48-.24-2.84-1.4-3.28-1.56-.44-.16-.76-.24-1.08.24-.32.48-1.24 1.56-1.52 1.88-.28.32-.56.36-1.04.12-.48-.24-2.02-.75-3.85-2.38-1.42-1.27-2.38-2.84-2.66-3.32-.28-.48-.03-.74.21-.98.22-.22.48-.56.72-.84.24-.28.32-.48.48-.8.16-.32.08-.6-.04-.84-.12-.24-1.08-2.6-1.48-3.56-.39-.93-.78-.8-1.08-.82l-.92-.01c-.32 0-.84.12-1.28.6-.44.48-1.68 1.64-1.68 4s1.72 4.64 1.96 4.96c.24.32 3.38 5.16 8.2 7.24 1.15.5 2.04.79 2.74 1.01 1.15.36 2.2.31 3.03.19.92-.14 2.84-1.16 3.24-2.28.4-1.12.4-2.08.28-2.28-.12-.2-.44-.32-.92-.56z"/>
+  </svg>
+</a>
+
+</body>
+</html>
