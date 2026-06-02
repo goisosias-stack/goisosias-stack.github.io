@@ -239,9 +239,16 @@ nav.scrolled{
 .tipo-card-site:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.4);}
 .tipo-num-site{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px;}
 .tipo-card-site h3{font-family:'DM Serif Display',serif;font-size:19px;color:var(--white);margin-bottom:12px;font-weight:400;line-height:1.3;}
-.tipo-card-site p{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;flex:1;margin-bottom:20px;}
-.tipo-saiba-mais{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap .2s;}
+.tipo-card-site>p{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;flex:1;margin-bottom:20px;}
+.tipo-saiba-mais{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap .2s;cursor:pointer;background:none;border:none;padding:0;}
 .tipo-saiba-mais:hover{gap:10px;}
+.tipo-expand{display:none;grid-column:1/-1;background:var(--card);border:1px solid var(--gold);border-radius:4px;padding:32px;margin-top:4px;}
+.tipo-expand.ativo{display:block;}
+.tipo-expand-inner p{font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:12px;}
+.tipo-expand-inner p:last-child{margin-bottom:0;}
+.tipo-expand-inner strong{color:var(--white);font-weight:500;}
+.tipo-expand-titulo{font-family:'DM Serif Display',serif;font-size:20px;color:var(--white);margin-bottom:20px;font-weight:400;}
+.tipo-expand-fechar{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;cursor:pointer;background:none;border:none;padding:0;margin-top:20px;display:inline-flex;align-items:center;gap:6px;}
 #blog{padding:140px 0;background:var(--black)}
 .blog-header{margin-bottom:52px}
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
@@ -465,55 +472,63 @@ footer{background:#050505;padding:32px 60px;display:flex;align-items:center;just
       <p style="font-size:16px;color:var(--muted);font-weight:300;line-height:1.8;max-width:580px;margin-top:16px;" class="reveal">A dependência emocional não tem uma única face. Reconhecer em qual padrão você está é o começo da transformação.</p>
       <div class="tipos-grid-site">
 
-        <div class="tipo-card-site reveal">
+        <div class="tipo-card-site reveal" onclick="abrirTipo(0)" style="cursor:pointer;">
           <div class="tipo-num-site">Tipo 01</div>
           <h3>Dependência Afetiva</h3>
           <p>A pessoa sente que só consegue ser feliz, segura ou completa quando está ao lado do parceiro, criando um apego excessivo e dificuldade em lidar com a distância ou a separação.</p>
-          <a href="#" class="tipo-saiba-mais">Saiba mais →</a>
+          <button class="tipo-saiba-mais">Saiba mais →</button>
         </div>
 
-        <div class="tipo-card-site reveal">
+        <div class="tipo-card-site reveal" onclick="abrirTipo(1)" style="cursor:pointer;">
           <div class="tipo-num-site">Tipo 02</div>
           <h3>Dependência por Medo da Solidão</h3>
           <p>O medo de ficar sozinho leva a pessoa a permanecer em relacionamentos insatisfatórios ou até prejudiciais, apenas para evitar o sentimento de abandono.</p>
-          <a href="#" class="tipo-saiba-mais">Saiba mais →</a>
+          <button class="tipo-saiba-mais">Saiba mais →</button>
         </div>
 
-        <div class="tipo-card-site reveal">
+        <div class="tipo-card-site reveal" onclick="abrirTipo(2)" style="cursor:pointer;">
           <div class="tipo-num-site">Tipo 03</div>
           <h3>Dependência por Necessidade de Aprovação</h3>
           <p>A autoestima depende constantemente da validação, elogios e reconhecimento dos outros, tornando a opinião alheia essencial para o bem-estar emocional.</p>
-          <a href="#" class="tipo-saiba-mais">Saiba mais →</a>
+          <button class="tipo-saiba-mais">Saiba mais →</button>
         </div>
 
-        <div class="tipo-card-site reveal">
+        <div class="tipo-card-site reveal" onclick="abrirTipo(3)" style="cursor:pointer;">
           <div class="tipo-num-site">Tipo 04</div>
           <h3>Dependência por Insegurança Emocional</h3>
           <p>A pessoa sente dificuldade em confiar no próprio valor e procura no relacionamento uma fonte permanente de segurança, proteção e estabilidade emocional.</p>
-          <a href="#" class="tipo-saiba-mais">Saiba mais →</a>
+          <button class="tipo-saiba-mais">Saiba mais →</button>
         </div>
 
-        <div class="tipo-card-site reveal">
+        <div class="tipo-card-site reveal" onclick="abrirTipo(4)" style="cursor:pointer;">
           <div class="tipo-num-site">Tipo 05</div>
           <h3>Dependência por Controle e Ciúme</h3>
           <p>Caracteriza-se pela necessidade constante de controlar ou monitorar o parceiro, motivada pelo medo de rejeição, traição ou abandono.</p>
-          <a href="#" class="tipo-saiba-mais">Saiba mais →</a>
+          <button class="tipo-saiba-mais">Saiba mais →</button>
         </div>
 
-        <div class="tipo-card-site reveal">
+        <div class="tipo-card-site reveal" onclick="abrirTipo(5)" style="cursor:pointer;">
           <div class="tipo-num-site">Tipo 06</div>
           <h3>Dependência por Sacrifício Excessivo</h3>
           <p>A pessoa coloca as necessidades dos outros acima das suas próprias, anulando desejos, objetivos e limites pessoais para manter a relação.</p>
-          <a href="#" class="tipo-saiba-mais">Saiba mais →</a>
+          <button class="tipo-saiba-mais">Saiba mais →</button>
         </div>
 
-        <div class="tipo-card-site reveal">
+        <div class="tipo-card-site reveal" onclick="abrirTipo(6)" style="cursor:pointer;">
           <div class="tipo-num-site">Tipo 07</div>
           <h3>Codependência Emocional</h3>
           <p>A pessoa assume uma responsabilidade excessiva pelos problemas e pela recuperação do outro — frequentemente ligada a situações de álcool ou drogas —, negligenciando suas próprias necessidades emocionais.</p>
-          <a href="#" class="tipo-saiba-mais">Saiba mais →</a>
+          <button class="tipo-saiba-mais">Saiba mais →</button>
         </div>
 
+      </div>
+
+      <!-- PAINEL EXPAND -->
+      <div id="tipo-painel" style="display:none; margin-top:24px; background:var(--card); border:1px solid var(--gold); border-radius:4px; padding:40px; position:relative;">
+        <button onclick="fecharTipo()" style="position:absolute;top:20px;right:24px;background:none;border:none;color:var(--gold);font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-weight:600;">Fechar ↑</button>
+        <div class="tipo-num-site" id="painel-num"></div>
+        <h3 id="painel-titulo" style="font-family:'DM Serif Display',serif;font-size:22px;color:var(--white);margin-bottom:20px;font-weight:400;"></h3>
+        <div id="painel-corpo"></div>
       </div>
     </div>
   </div>
@@ -549,13 +564,13 @@ footer{background:#050505;padding:32px 60px;display:flex;align-items:center;just
         </div>
       </div>
       <div class="reveal d1">
-        <form class="form" onsubmit="return false">
+        <form class="form" onsubmit="enviarWhatsApp(event)">
           <div class="fr">
-            <div class="fg"><label class="fl">Nome</label><input type="text" class="fi" placeholder="Seu nome"></div>
-            <div class="fg"><label class="fl">Telefone</label><input type="tel" class="fi" placeholder="(XX) XXXXX-XXXX"></div>
+            <div class="fg"><label class="fl">Nome</label><input type="text" id="f-nome" class="fi" placeholder="Seu nome" required></div>
+            <div class="fg"><label class="fl">Telefone</label><input type="tel" id="f-tel" class="fi" placeholder="(XX) XXXXX-XXXX"></div>
           </div>
-          <div class="fg"><label class="fl">E-mail</label><input type="email" class="fi" placeholder="seu@email.com"></div>
-          <div class="fg"><label class="fl">Mensagem</label><textarea class="ft" placeholder="Como posso te ajudar?"></textarea></div>
+          <div class="fg"><label class="fl">E-mail</label><input type="email" id="f-email" class="fi" placeholder="seu@email.com"></div>
+          <div class="fg"><label class="fl">Mensagem</label><textarea id="f-msg" class="ft" placeholder="Como posso te ajudar?"></textarea></div>
           <button type="submit" class="fs">Enviar Mensagem</button>
         </form>
       </div>
@@ -593,7 +608,47 @@ const artigos=[
   {cat:'Autoconhecimento',title:'Por que repetimos os mesmos padrões nos relacionamentos?',body:`<p><em>"Eu sempre acabo me envolvendo com pessoas emocionalmente indisponíveis." "Todo relacionamento meu termina da mesma forma."</em></p><p>Essas frases revelam algo importante: muitas vezes, repetimos padrões afetivos sem perceber.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">A repetição nem sempre é consciente</h3><p>Na psicanálise, isso acontece porque muitos dos nossos vínculos afetivos são influenciados por conteúdos inconscientes — histórias, emoções e marcas construídas desde a infância.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">O familiar pode parecer seguro</h3><p>O familiar tende a parecer mais seguro do que o desconhecido. Uma pessoa que cresceu convivendo com abandono emocional pode sentir uma atração inconsciente por relações distantes — não porque deseje sofrer, mas porque aquele vínculo já faz parte da sua experiência afetiva.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">Conclusão</h3><p>Talvez o primeiro passo para transformar um padrão seja parar de perguntar "por que isso sempre acontece comigo?" e começar a perguntar "o que essa repetição revela sobre minha história?"</p>`},
   {cat:'Clínica',title:'Ansiedade: o que ela tenta nos dizer?',body:`<p>A ansiedade costuma ser vista como uma inimiga. Mas para a psicanálise, ela não é apenas um sintoma a ser eliminado — pode ser compreendida como uma mensagem do psiquismo.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">A ansiedade como sinal</h3><p>Na psicanálise, a ansiedade é entendida como um sinal de conflito interno. Ela surge quando algo no sujeito produz angústia, insegurança ou ameaça emocional — mesmo que isso não esteja totalmente consciente.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">O corpo fala quando a mente não consegue</h3><p>Quando emoções são reprimidas ou não encontram espaço de expressão, elas podem aparecer através de sintomas físicos. A ansiedade frequentemente é uma forma de o corpo comunicar algo que não conseguiu ser simbolizado em palavras.</p><h3 style="font-family:'DM Serif Display',serif;font-size:22px;color:#f5f5f5;margin:32px 0 12px;font-weight:400">Conclusão</h3><p>Talvez a pergunta mais importante não seja apenas "como faço para parar de sentir ansiedade?", mas também: "O que minha ansiedade está tentando me mostrar?"</p>`}
 ];
-function openModal(i){const a=artigos[i];document.getElementById('modal-cat').textContent=a.cat;document.getElementById('modal-title').textContent=a.title;document.getElementById('modal-body').innerHTML=a.body;document.getElementById('modal').style.display='block';document.body.style.overflow='hidden';}
+function enviarWhatsApp(e) {
+  e.preventDefault();
+  const nome = document.getElementById('f-nome').value.trim();
+  const tel = document.getElementById('f-tel').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const msg = document.getElementById('f-msg').value.trim();
+  if (!nome) { alert('Por favor, informe seu nome.'); return; }
+  let texto = `Olá Osias! Meu nome é ${nome}.`;
+  if (tel) texto += ` Telefone: ${tel}.`;
+  if (email) texto += ` E-mail: ${email}.`;
+  if (msg) texto += ` Mensagem: ${msg}`;
+  window.open(`https://wa.me/5511960734017?text=${encodeURIComponent(texto)}`, '_blank');
+}
+
+const tiposData = [
+  { num: 'Tipo 01', titulo: 'Dependência Afetiva', corpo: `<p>A <strong>dependência afetiva</strong> se manifesta quando a presença do outro se torna uma condição para o próprio equilíbrio emocional. Não é simplesmente gostar muito de alguém — é sentir que sem essa pessoa, você deixa de existir como sujeito.</p><p>Na raiz desse padrão, a psicanálise encontra frequentemente uma história de vínculos inseguros na infância, onde o amor foi percebido como algo condicional ou imprevisível. O adulto repete essa dinâmica buscando, em cada relação, a completude que nunca encontrou.</p><p><strong>Sinais comuns:</strong> dificuldade em ficar sozinho, ciúme desproporcional, sensação de vazio quando o parceiro não está presente, e medo intenso do término do relacionamento mesmo quando ele é prejudicial.</p><p>O trabalho psicanalítico abre espaço para compreender a origem desse apego e construir uma relação mais autônoma consigo mesmo — onde o outro complementa, mas não completa.</p>` },
+  { num: 'Tipo 02', titulo: 'Dependência por Medo da Solidão', corpo: `<p>O <strong>medo da solidão</strong> vai além do desconforto natural de estar só. É um terror interno que leva a pessoa a aceitar qualquer relação — mesmo aquelas que causam sofrimento — apenas para não enfrentar o vazio do silêncio consigo mesma.</p><p>Esse padrão frequentemente esconde uma dificuldade profunda de se relacionar com a própria interioridade. A solidão, nesse caso, não é ausência do outro: é ausência de si mesmo.</p><p><strong>Sinais comuns:</strong> dificuldade em terminar relações mesmo sabendo que são ruins, entrar rapidamente em novos relacionamentos após separações, e preencher o tempo com qualquer companhia para evitar o silêncio.</p><p>A psicanálise propõe um caminho de reencontro com a própria presença — para que a solidão deixe de ser ameaça e se torne espaço de autoconhecimento.</p>` },
+  { num: 'Tipo 03', titulo: 'Dependência por Necessidade de Aprovação', corpo: `<p>Quando a <strong>autoestima é construída de fora para dentro</strong>, a pessoa vive em função do olhar alheio. Cada elogio alimenta temporariamente; cada crítica desestrutura profundamente. O valor próprio nunca se estabiliza porque depende de algo externo e inconstante.</p><p>Esse padrão tem raízes em ambientes onde o afeto era condicionado ao desempenho, à obediência ou à perfeição. A criança aprendeu que precisava conquistar amor — e o adulto continua tentando.</p><p><strong>Sinais comuns:</strong> dificuldade em tomar decisões sem consultar os outros, evitar discordâncias para não desagradar, sentir ansiedade intensa diante de críticas e buscar constantemente elogios e reconhecimento.</p><p>Na psicanálise, é possível construir uma base interna de valor que não dependa da aprovação externa — e aprender a existir sem precisar ser validado para se sentir inteiro.</p>` },
+  { num: 'Tipo 04', titulo: 'Dependência por Insegurança Emocional', corpo: `<p>A <strong>insegurança emocional</strong> cria uma dependência sutil mas intensa: a pessoa usa o relacionamento como âncora, transferindo para o outro a responsabilidade de regulá-la emocionalmente. O parceiro se torna, ao mesmo tempo, porto seguro e prisão.</p><p>Essa insegurança frequentemente tem origem em experiências de instabilidade afetiva ou rejeição precoce, que deixaram a pessoa sem uma base interna sólida para confiar em si mesma e no mundo.</p><p><strong>Sinais comuns:</strong> necessidade constante de reasseguramento, dificuldade em lidar com incertezas na relação, interpretação de pequenos sinais como ameaças de abandono e dependência emocional do humor do parceiro.</p><p>O trabalho analítico oferece um espaço para reconstruir essa base interna — para que a segurança emocional venha de dentro, e não precise ser buscada no outro.</p>` },
+  { num: 'Tipo 05', titulo: 'Dependência por Controle e Ciúme', corpo: `<p>O <strong>controle e o ciúme excessivo</strong> são, na maioria das vezes, uma resposta ao medo — não ao comportamento do outro. A pessoa tenta gerenciar a ansiedade do possível abandono controlando o ambiente ao redor. É uma ilusão de segurança que, paradoxalmente, afasta o que mais teme perder.</p><p>Por trás do comportamento controlador há frequentemente uma ferida de traição ou abandono, real ou imaginada, que nunca foi elaborada. O ciúme se torna uma forma de tentar garantir o que a pessoa sente que não merece ter.</p><p><strong>Sinais comuns:</strong> monitoramento de mensagens e localização, questionamentos frequentes sobre o paradeiro do parceiro, crises intensas diante de situações ambíguas e dificuldade em confiar mesmo sem evidências concretas.</p><p>A psicanálise ajuda a identificar a ferida original por trás do controle — e a desenvolver confiança não apenas no outro, mas sobretudo em si mesmo.</p>` },
+  { num: 'Tipo 06', titulo: 'Dependência por Sacrifício Excessivo', corpo: `<p>O <strong>sacrifício excessivo</strong> se disfarça de generosidade, mas esconde uma equação dolorosa: a pessoa acredita, no fundo, que só merece ser amada se se anular. Colocar o outro sempre em primeiro lugar se torna uma estratégia inconsciente para garantir o afeto.</p><p>Esse padrão frequentemente se origina em famílias onde a criança aprendeu a suprimir suas necessidades para não sobrecarregar os adultos ou para receber amor e aprovação. O cuidado do outro se torna uma moeda de troca emocional.</p><p><strong>Sinais comuns:</strong> dificuldade em dizer não, sentimento de culpa ao priorizar a si mesmo, ressentimento acumulado por nunca ter suas necessidades atendidas e perda gradual da própria identidade dentro da relação.</p><p>Na psicanálise, é possível reaprender que ocupar espaço, ter desejos e impor limites não é egoísmo — é saúde emocional.</p>` },
+  { num: 'Tipo 07', titulo: 'Codependência Emocional', corpo: `<p>A <strong>codependência</strong> é um padrão onde a vida emocional da pessoa passa a girar em torno do problema do outro. Ela se torna especialista nos sentimentos, comportamentos e crises de quem ama — enquanto perde contato com os próprios.</p><p>Muito comum em famílias com histórico de dependência química, a codependência é aprendida como forma de sobrevivência afetiva: controlar o caos do outro parece ser a única forma de manter alguma estabilidade.</p><p><strong>Sinais comuns:</strong> sentir-se responsável pela felicidade ou sobriedade do outro, negligenciar as próprias necessidades, dificuldade em separar os próprios sentimentos dos sentimentos do parceiro e medo intenso de deixar o outro sozinho com seus problemas.</p><p>A psicanálise oferece um espaço para que a pessoa reencontre a si mesma fora do papel de cuidadora compulsiva — e aprenda que cuidar de si não é abandonar o outro.</p>` }
+];
+
+let tipoAtivo = -1;
+function abrirTipo(i) {
+  const painel = document.getElementById('tipo-painel');
+  if (tipoAtivo === i) { fecharTipo(); return; }
+  tipoAtivo = i;
+  document.querySelectorAll('.tipo-card-site').forEach((c,j) => c.classList.toggle('aberto', j===i));
+  document.getElementById('painel-num').textContent = tiposData[i].num;
+  document.getElementById('painel-titulo').textContent = tiposData[i].titulo;
+  document.getElementById('painel-corpo').innerHTML = tiposData[i].corpo;
+  painel.style.display = 'block';
+  setTimeout(() => painel.scrollIntoView({behavior:'smooth', block:'nearest'}), 100);
+}
+function fecharTipo() {
+  tipoAtivo = -1;
+  document.querySelectorAll('.tipo-card-site').forEach(c => c.classList.remove('aberto'));
+  document.getElementById('tipo-painel').style.display = 'none';
+}
 function closeModal(){document.getElementById('modal').style.display='none';document.body.style.overflow='';}
 document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
