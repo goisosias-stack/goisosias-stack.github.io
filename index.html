@@ -622,14 +622,14 @@ function closeModal(){document.getElementById('modal').style.display='none';docu
 document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
 
-document.querySelectorAll('[href*="wa.me"]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (typeof gtag !== 'undefined') gtag('event', 'whatsapp_click', {
-      event_category: 'engagement',
-      event_label: btn.innerText.trim() || 'whatsapp_button'
-    });
-    if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('[href*="wa.me"]');
+  if (!btn) return;
+  if (typeof gtag !== 'undefined') gtag('event', 'whatsapp_click', {
+    event_category: 'engagement',
+    event_label: (btn.innerText || btn.title || '').trim() || 'whatsapp_button'
   });
+  if (typeof fbq !== 'undefined') fbq('track', 'Lead');
 });
 const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
